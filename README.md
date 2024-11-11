@@ -9,7 +9,7 @@ Audisense unsurprisingly has very little public data available, so finding real 
 
 ## 2: Build the database
 
-To build the database, I spun up a Postgres RDS instance. From there, I used DBeaver to create the tables and import the CSV data. For that specific code,see [Backend/Database/SQL Scripts/audisense-db-setup.sql](https://github.com/bradyumgproject/UMG_Project/blob/main/UMG_Project/Backend/Database/SQL%20Scripts/audisense-db-setup.sql). Below are sample rows from each table and the ERD to give an idea of what the database looks like:
+To build the database, I spun up a Postgres RDS instance as it is the database management system I am most comfortable with and works great for analysis. From there, I used DBeaver as my SQL editor to create the tables and import the CSV data. For that specific code,see [Backend/Database/SQL Scripts/audisense-db-setup.sql](https://github.com/bradyumgproject/UMG_Project/blob/main/UMG_Project/Backend/Database/SQL%20Scripts/audisense-db-setup.sql). Below are sample rows from each table and the ERD to give an idea of what the database looks like:
 
 ### Artists Table
 
