@@ -89,6 +89,6 @@ Rather than displaying my results in a traditional format like Powerpoint, I tho
 3. Buy my domain name from a DNS registrar
 4. Use Route 53 to configure DNS for my S3 Buckets
 5. Use Amazon Certificate Manager to get an SSL certificate and add the entires into Route 53
-6. Use Cloudfront to distribute my HTTPS website
+6. Use Cloudfront to distribute my HTTPS website and speed up content delivery
 
 To view the website files, see the files in [Frontend/html](https://github.com/bradyumgproject/UMG_Project/tree/main/UMG_Project/Frontend/html)
