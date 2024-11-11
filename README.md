@@ -9,7 +9,69 @@ Audisense unsurprisingly has very little public data available, so finding real 
 
 ## 2: Build the database
 
-To build the database, I spun up a Postgres RDS instance. From there, I used DBeaver to create the tables and import the CSV data. For that specific code,see [Backend/Database/SQL Scripts/audisense-db-setup.sql](https://github.com/bradyumgproject/UMG_Project/blob/main/UMG_Project/Backend/Database/SQL%20Scripts/audisense-db-setup.sql).
+To build the database, I spun up a Postgres RDS instance. From there, I used DBeaver to create the tables and import the CSV data. For that specific code,see [Backend/Database/SQL Scripts/audisense-db-setup.sql](https://github.com/bradyumgproject/UMG_Project/blob/main/UMG_Project/Backend/Database/SQL%20Scripts/audisense-db-setup.sql). Below are sample rows from each table and the ERD to give an idea of what the database looks like:
+
+### Artists Table
+
+| artist_id | artist_name        | genre     | label                      | social_followers | monthly_listeners | region_popularity |
+|-----------|--------------------|-----------|----------------------------|------------------|-------------------|--------------------|
+| 1         | Dr. Paul White     | Pop       | Morrow-Collier            | 564,906          | 319,969           | Canada            |
+| 2         | Patty Rivera       | EDM       | Patterson-Cochran         | 441,895          | 963,694           | USA               |
+| 3         | Aimee Thompson     | Country   | Shelton, Simmons and Mann | 1,100,598        | 539,372           | Germany           |
+| 4         | Kristie Ferguson   | Rock      | Oneill, Scott and Reed     | 390,511          | 522,513           | India             |
+| 5         | Nicholas Smith     | Country   | Clay, Trujillo and Garza   | 1,810,613        | 26,356            | Germany           |
+
+---
+
+### Audience Profiles Table
+
+| profile_id | age_group | gender   | location    | preferred_genre | average_listening_hours | device_type | music_service  |
+|------------|-----------|----------|-------------|-----------------|-------------------------|-------------|----------------|
+| 1          | 45-54     | Other    | France      | Pop             | 25.45                   | Desktop     | Amazon Music   |
+| 2          | 35-44     | Male     | UK          | Hip-Hop         | 5.09                    | Mobile      | Spotify        |
+| 3          | 25-34     | Other    | Japan       | Hip-Hop         | 27.21                   | Tablet      | Apple Music    |
+| 4          | 18-24     | Female   | Germany     | Hip-Hop         | 6.16                    | Desktop     | Spotify        |
+| 5          | 55+       | Non-binary | Germany   | EDM             | 23.69                   | Tablet      | Apple Music    |
+
+---
+
+### Audience Segments Table
+
+| segment_id | segment_name               | criteria                 | size | average_engagement_score | preferred_device |
+|------------|----------------------------|--------------------------|------|--------------------------|------------------|
+| 1          | Metalheads                 | 18-24 Pop lovers         | 192  | 4.74                     | Desktop          |
+| 2          | Pop Fans                   | 18-24 Hip-Hop lovers     | 245  | 1.64                     | Tablet           |
+| 3          | Casual Listeners           | 18-24 Rock lovers        | 323  | 2.17                     | Desktop          |
+| 4          | EDM Fans                   | 18-24 EDM lovers         | 110  | 4.86                     | Mobile           |
+| 5          | Jazz Enthusiasts           | 18-24 Classical lovers   | 312  | 1.7                      | Desktop          |
+
+---
+
+### Fan Engagement Metrics Table
+
+| engagement_id | profile_id | artist_id | streams | likes | shares | comments | time_spent_on_artist | date       |
+|---------------|------------|-----------|---------|-------|--------|----------|-----------------------|------------|
+| 1             | 2,343      | 6         | 8       | 32    | 6      | 1        | 59.67                 | 2024-10-08 |
+| 2             | 1,895      | 25        | 73      | 19    | 3      | 6        | 41.83                 | 2024-03-24 |
+| 3             | 1,476      | 37        | 35      | 42    | 14     | 1        | 161.33                | 2024-02-16 |
+| 4             | 1,866      | 49        | 14      | 16    | 3      | 5        | 18.23                 | 2024-08-21 |
+| 5             | 974        | 27        | 83      | 17    | 10     | 6        | 169.55                | 2024-06-06 |
+
+---
+
+### Insights Table
+
+| insight_id | segment_id | artist_id | engagement_trend | audience_growth_rate | engagement_rate | top_platform  |
+|------------|------------|-----------|------------------|----------------------|-----------------|---------------|
+| 1          | 6          | 2         | Steady          | 0.23                 | 9.62            | YouTube Music |
+| 2          | 17         | 12        | Steady          | 0.35                 | 4.54            | Apple Music   |
+| 3          | 1          | 7         | Rising          | -0.1                 | 2.8             | Spotify       |
+| 4          | 4          | 41        | Steady          | 0.18                 | 5.05            | Apple Music   |
+| 5          | 15         | 49        | Steady          | 0.36                 | 7.26            | Apple Music   |
+
+
+![ERD Diagram](https://github.com/bradyumgproject/UMG_Project/blob/main/UMG_Project/Backend/Database/UMG_ERD.png)
+
 
 ## 3: Generate actionable insights
 
