@@ -1,18 +1,19 @@
-# Generating insights using mock Audisense data for UMG by Brady Katler
+# # Uncovering Fan Trends: Simulated Audisense Data Insights for UMG by Brady Katler
 
-For this project, my goal was to create a report similar to what a Strategic Analyst at Universal Music Group (UMG) might produce. I researched UMG’s use of Audisense to gather data on various audience segments and utilized AI to generate a sample database. The results can be seen by visiting mockaudisense.report. Here were the steps to reproduce:
+For this project, my goal was to create a report similar to what a Strategic Analyst at Universal Music Group (UMG) might produce. I researched UMG’s use of Audisense to gather data on various audience segments and utilized AI to generate a sample database. The results can be seen by visiting [mockaudisense.report](http://mockaudisense.report). Here were the steps to reproduce:
 
 ## 1. Simulate an Audisense database using dummy data
 
-Audisense unsurprisingly has very little public data available, so finding real information I could use to generate insights proved to be extremely difficult. The next best thing was to simulate a database using AI. By feeding ChatGPT information on Audisense and the data they produce, I was able to produce 10,000 rows of dummy data. The specific tables can be seen in the `Backend/Database/Database Schema Directory`.
+Audisense unsurprisingly has very little public data available, so finding real information I could use to generate insights proved to be extremely difficult. The next best thing was to simulate a database using AI, so I used the [Audisense Knowledge Base Documentation](https://help.audiense.com/knowledge/audiense-insights) in conjunction with ChatGPT to produce 10,000 rows of dummy data designed to emulate what UMG might receive from Audisense. The specific tables can be seen in the [Backend/Database/Database Schema Directory](https://github.com/bradyumgproject/UMG_Project/tree/main/UMG_Project/Backend/Database/Database%20Schema).
+
 
 ## 2: Build the database
 
-To build the database, I spun up a Postgres RDS instance. From there, I used DBeaver to create the tables and import the CSV data. For that specific code,see `Backend/Database/SQL Scripts/audisense-db-setup.sql`. For an ERD, see `Backend/Database/UMG ERD.pdf`
+To build the database, I spun up a Postgres RDS instance. From there, I used DBeaver to create the tables and import the CSV data. For that specific code,see [Backend/Database/SQL Scripts/audisense-db-setup.sql](https://github.com/bradyumgproject/UMG_Project/blob/main/UMG_Project/Backend/Database/SQL%20Scripts/audisense-db-setup.sql).
 
 ## 3: Generate Actionable Insights
 
-I wrote four SQL queries and used three of the main ones on my website. My goal was to use a variety of SQL skills including CTEs, Window Functions, and statistic functions. To see the SQL queries, see 'Backend/Database/SQL Scripts/sql_queries.sql`
+I wrote four SQL queries and used three of the main ones on my website. My goal was to use a variety of SQL skills including CTEs, Window Functions, and statistic functions. To see the SQL queries, see [Backend/Database/SQL Scripts/sql_queries.sql](https://github.com/bradyumgproject/UMG_Project/blob/main/UMG_Project/Backend/Database/SQL%20Scripts/sql_queries.sql)
 
 ## 4: Bring SQL queries into Looker Studio
 
@@ -28,4 +29,4 @@ Rather than displaying my results in a traditional format like Powerpoint, I tho
 5. Use Amazon Certificate Manager to get an SSL certificate and add the entires into Route 53
 6. Use Cloudfront to distribute my HTTPS website
 
-To view the website files, see the files in `frontend/html`
+To view the website files, see the files in [Frontend/html](https://github.com/bradyumgproject/UMG_Project/tree/main/UMG_Project/Frontend/html)
