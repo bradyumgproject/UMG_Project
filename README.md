@@ -11,7 +11,7 @@ Audisense unsurprisingly has very little public data available, so finding real 
 
 To build the database, I spun up a Postgres RDS instance. From there, I used DBeaver to create the tables and import the CSV data. For that specific code,see [Backend/Database/SQL Scripts/audisense-db-setup.sql](https://github.com/bradyumgproject/UMG_Project/blob/main/UMG_Project/Backend/Database/SQL%20Scripts/audisense-db-setup.sql).
 
-## 3: Generate Actionable Insights
+## 3: Generate actionable insights
 
 I wrote four SQL queries and used three of the main ones on my website. My goal was to use a variety of SQL skills including CTEs, Window Functions, and statistic functions. To see the SQL queries, see [Backend/Database/SQL Scripts/sql_queries.sql](https://github.com/bradyumgproject/UMG_Project/blob/main/UMG_Project/Backend/Database/SQL%20Scripts/sql_queries.sql)
 
