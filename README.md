@@ -4,12 +4,12 @@ For this project, my goal was to create a report similar to what a Strategic Ana
 
 ## 1. Simulate an Audisense database using dummy data
 
-Audisense unsurprisingly has very little public data available, so finding real information I could use to generate insights proved to be extremely difficult. The next best thing was to simulate a database using AI, so I used the [Audisense Knowledge Base Documentation](https://help.audiense.com/knowledge/audiense-insights) in conjunction with ChatGPT to produce 10,000 rows of dummy data designed to emulate what UMG might receive from Audisense. The specific tables can be seen in the [Backend/Database/Database Schema Directory](https://github.com/bradyumgproject/UMG_Project/tree/main/UMG_Project/Backend/Database/Database%20Schema).
+Audisense unsurprisingly has very little public data available, so finding real information I could use to generate insights proved to be extremely difficult. The next best thing was to simulate a database using AI, so I used the [Audisense Knowledge Base Documentation](https://help.audiense.com/knowledge/audiense-insights) in conjunction with ChatGPT to produce 10,000 rows of dummy data designed to emulate what UMG might receive from Audisense. The specific tables can be seen in the [Backend/Database/Database_Schema_Directory](https://github.com/bradyumgproject/UMG_Project/tree/main/UMG_Project/Backend/Database/Database_Schema).
 
 
 ## 2: Build the database
 
-To build the database, I spun up a Postgres RDS instance as it is the database management system I am most comfortable with and works great for analysis. From there, I used DBeaver as my SQL editor to create the tables and import the CSV data. For that specific code,see [Backend/Database/SQL Scripts/audisense-db-setup.sql](https://github.com/bradyumgproject/UMG_Project/blob/main/UMG_Project/Backend/Database/SQL%20Scripts/audisense-db-setup.sql). Below are sample rows from each table and the ERD to give an idea of what the database looks like:
+To build the database, I spun up a Postgres RDS instance as it is the database management system I am most comfortable with and works great for analysis. From there, I used DBeaver as my SQL editor to create the tables and import the CSV data. For that specific code,see [Backend/Database/SQL Scripts/audisense-db-setup.sql](https://github.com/bradyumgproject/UMG_Project/blob/main/UMG_Project/Backend/Database/SQL_Scripts/audisense_db_setup.sql). Below are sample rows from each table and the ERD to give an idea of what the database looks like:
 
 ### Artists Table
 
@@ -75,7 +75,7 @@ To build the database, I spun up a Postgres RDS instance as it is the database m
 
 ## 3: Generate actionable insights
 
-I wrote four SQL queries and used three of the main ones on my website. My goal was to use a variety of SQL skills including CTEs, Window Functions, and statistic functions. To see the SQL queries, see [Backend/Database/SQL Scripts/sql_queries.sql](https://github.com/bradyumgproject/UMG_Project/blob/main/UMG_Project/Backend/Database/SQL%20Scripts/sql_queries.sql)
+I wrote four SQL queries and used three of the main ones on my website. My goal was to use a variety of SQL skills including CTEs, Window Functions, and statistic functions. To see the SQL queries, see [Backend/Database/SQL_Scripts/sql_queries.sql](https://github.com/bradyumgproject/UMG_Project/blob/main/UMG_Project/Backend/Database/SQL_Scripts/sql_queries.sql)
 
 ## 4: Bring SQL queries into Looker Studio
 
