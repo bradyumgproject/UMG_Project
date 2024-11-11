@@ -13,9 +13,10 @@ Enhance cross-platform strategies by understanding where and how fans interact w
 /*
 Business Question: How consistent do fans interact with each artist?
 Final Expected Output: Artist Name | Consistency Score (weighted inverse of STDEV to favor artists with more consistency) | total comments | total likes | total shares
-F-1 Expected Output: Artist Name | (1 / Stdev_likes) * 0.34 + ... AS consistency score
-F-2 Expected Output: Artist Name | total_likes | stdev_likes | +...
+F-1 Expected Output: Artist Name | total_likes | stdev_likes | +...
 */
+
+-- First CTE: Getting the standard deviation and totals for each interaction metric
 WITH total_engagement AS (
 SELECT 
     a.artist_name,
@@ -36,6 +37,7 @@ GROUP BY
 	a.genre,
 	a.label
 )
+-- Final Query: Using the Stddev to create a consistency score that gives higher scores to artists with more consistent interactions
 SELECT 
 	artist_name,
 	genre,
@@ -55,6 +57,8 @@ ORDER BY
 Business Question: Which audiences engage with the most artists/genres
 Final Expected Output: segment_name | total_genres | total_artists
 */
+
+-- Getting the total artists and genres for each segment
 SELECT 
 	as2.segment_name,
 	COUNT(a.artist_id) AS total_artists,
@@ -71,6 +75,8 @@ Business Question: What is the top music service for each genre by streams
 Final Expected Output: genre | music_service | streams 
 F-1 Expected Output: genre | music_service | ROW_NUMBER() AS ranked_streams
 */
+
+-- Getting the total streams for each genre on each music service and ranking them accoridngly
 WITH genres_by_service AS (
 SELECT 
 	a.genre,
@@ -85,6 +91,8 @@ GROUP BY
 	a.genre,
 	ap.music_service
 )
+
+-- Selecting only the top streamed service for each genre
 SELECT 
 	genre,
 	music_service,
@@ -99,6 +107,8 @@ Business Question: What percent of each segment uses each device type?
 Final Expected Output: segment_name  | device_type | user_count | user_percentage
 F-1 Expected Output: segment_name | device_type | user_countt
 */
+
+-- Getting the total users for each segment and device
 WITH segment_counts AS (
 SELECT  
 		as2.segment_name,
@@ -114,6 +124,8 @@ GROUP BY
 	as2.segment_name,
 	ap.device_type
 )
+
+-- Finding the percent of users who use each device in each segment
 SELECT 
 	segment_name,
 	device_type,
