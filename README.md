@@ -1,4 +1,4 @@
-# # Uncovering Fan Trends: Simulated Audisense Data Insights for UMG by Brady Katler
+# Uncovering Fan Trends: Simulated Audisense Data Insights for UMG by Brady Katler
 
 For this project, my goal was to create a report similar to what a Strategic Analyst at Universal Music Group (UMG) might produce. I researched UMG’s use of Audisense to gather data on various audience segments and utilized AI to generate a sample database. The results can be seen by visiting [mockaudisense.report](http://mockaudisense.report). Here were the steps to reproduce:
 
